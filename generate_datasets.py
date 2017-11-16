@@ -3,18 +3,15 @@ import random
 import string
 import os
 
+import utils
+
 def generate_datasets(n_ids=1000, min_card_left=1, max_card_left=10, min_card_right=1, max_card_right=10, fill_size=128):
 
-    data_dir = "data"
-    input_dir = os.path.sep.join([data_dir, "input"])
+    input_dir = utils.get_input_dir()
+    utils.create_dir(input_dir)
 
-    if not os.path.exists(input_dir):
-        os.makedirs(input_dir)
-
-    name = os.path.sep.join([input_dir, "ds"])
-    filename = name + "_n" + str(n_ids).zfill(8) + "_size" + str(fill_size).zfill(5)
-    filename_left = filename + "_card" + str(max_card_left).zfill(3) + "_left"
-    filename_right = filename + "_card" + str(max_card_right).zfill(3) + "_right"
+    filename_left = utils.generate_input_filename(n_ids, min_card_left, max_card_left, fill_size, "left")
+    filename_right = utils.generate_input_filename(n_ids, min_card_right, max_card_right, fill_size, "right")
     print(filename_left)
     print(filename_right)
 
@@ -40,6 +37,5 @@ def generate_datasets(n_ids=1000, min_card_left=1, max_card_left=10, min_card_ri
 
 
 if __name__ == "__main__":
-
-    for n in [1000, 10000, 100000, 1000000]:
+    for n in [10, 1000, 10000]:
         generate_datasets(n_ids = n, max_card_left=10, max_card_right=10, fill_size=128)
