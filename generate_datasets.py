@@ -1,9 +1,17 @@
 import uuid
 import random
 import string
+import os
 
 def generate_datasets(n_ids=1000, min_card_left=1, max_card_left=10, min_card_right=1, max_card_right=10, fill_size=128):
-    name = "ds"
+
+    data_dir = "data"
+    input_dir = os.path.sep.join([data_dir, "input"])
+
+    if not os.path.exists(input_dir):
+        os.makedirs(input_dir)
+
+    name = os.path.sep.join([input_dir, "ds"])
     filename = name + "_n" + str(n_ids).zfill(8) + "_size" + str(fill_size).zfill(5)
     filename_left = filename + "_card" + str(max_card_left).zfill(3) + "_left"
     filename_right = filename + "_card" + str(max_card_right).zfill(3) + "_right"
