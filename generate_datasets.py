@@ -37,5 +37,5 @@ def generate_datasets(n_ids=1000, min_card_left=1, max_card_left=10, min_card_ri
 
 
 if __name__ == "__main__":
-    for n in [10, 1000, 10000]:
+    for n in [1000000]:
         generate_datasets(n_ids = n, max_card_left=10, max_card_right=10, fill_size=128)

@@ -31,3 +31,10 @@ def generate_sorted_filename(n_ids, min_card, max_card, fill_size, side):
 def generate_joined_filename(n_ids, min_card, max_card, fill_size):
     filename = "ds_joined" + generate_characteristics(n_ids, min_card, max_card, fill_size) + ".csv"
     return os.path.sep.join([get_output_dir(), filename])
+
+
+
+def wrapper(func, *args, **kwargs):
+    def wrapped():
+        return func(*args, **kwargs)
+    return wrapped
