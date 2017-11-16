@@ -6,14 +6,8 @@ import os
 import utils
 
 def generate_datasets(n_ids=1000, min_card_left=1, max_card_left=10, min_card_right=1, max_card_right=10, fill_size=128):
-
-    input_dir = utils.get_input_dir()
-    utils.create_dir(input_dir)
-
     filename_left = utils.generate_input_filename(n_ids, min_card_left, max_card_left, fill_size, "left")
     filename_right = utils.generate_input_filename(n_ids, min_card_right, max_card_right, fill_size, "right")
-    print(filename_left)
-    print(filename_right)
 
 
     fl = open(filename_left, "w")
@@ -37,5 +31,5 @@ def generate_datasets(n_ids=1000, min_card_left=1, max_card_left=10, min_card_ri
 
 
 if __name__ == "__main__":
-    for n in [1000000]:
+    for n in [100]:
         generate_datasets(n_ids = n, max_card_left=10, max_card_right=10, fill_size=128)
